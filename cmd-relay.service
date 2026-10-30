@@ -1,0 +1,14 @@
+[Unit]
+Description=Microduck command relay (robotd -> TCP)
+After=robotd.service
+Wants=robotd.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /home/radxa/cmd_relay.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
